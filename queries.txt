@@ -56,6 +56,14 @@ SELECT id, idplace, idauteur, note, date_review, date_visit, langue FROM tourist
 	)
 );
 
+**************** DATE REVIEWS *******
+2003-07-04 2016-12-08
+SELECT MIN(date_review) AS "Minimum", MAX(date_review) AS "Maximum" FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid IN (
+	53660, 50882
+	)
+) AND date_review != '0000-00-00';
+
 
 ******************************************************************************
 ******************************************************************************
@@ -79,6 +87,79 @@ SELECT id, idplace, idauteur, note, date_review, date_visit, langue FROM tourist
 2004-05-11 2016-12-04
 
 
+******************************************************************************
+******************************************************************************
+************************** REIMS ****************************************
+******************************************************************************
+******************************************************************************
+
+******************** PLACES ****************************
+SELECT * FROM touristflow.tripadvisorShort WHERE shape_gid = 71233;
+
+OU  
+
+SELECT id, nom, url, nbAvis, latitude, longitude, shape_gid, gtrip FROM touristflow.tripadvisor WHERE shape_gid = 71233;
+
+**************** REVIEWS *****************************
+SELECT id, idplace, idauteur, note, date_review, date_visit, langue FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid = 71233
+);
+
+**************** DATE REVIEWS *******
+2002-11-14 2016-12-07
+SELECT MIN(date_review) AS "Minimum", MAX(date_review) AS "Maximum" FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid = 71233
+) AND date_review != '0000-00-00';
+
+******************************************************************************
+******************************************************************************
+************************** LILLE ****************************************
+******************************************************************************
+******************************************************************************
+
+******************** PLACES ****************************
+SELECT * FROM touristflow.tripadvisorShort WHERE shape_gid = 52094;
+
+OU  
+
+SELECT id, nom, url, nbAvis, latitude, longitude, shape_gid, gtrip FROM touristflow.tripadvisor WHERE shape_gid = 52094;
+
+**************** REVIEWS *****************************
+SELECT id, idplace, idauteur, note, date_review, date_visit, langue FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid = 52094
+);
+
+**************** DATE REVIEWS *******
+2002-11-03 2016-12-09
+SELECT MIN(date_review) AS "Minimum", MAX(date_review) AS "Maximum" FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid = 52094
+) AND date_review != '0000-00-00';
+
+
+******************************************************************************
+******************************************************************************
+************************** BORDEAUX ****************************************
+******************************************************************************
+******************************************************************************
+
+******************** PLACES ****************************
+SELECT * FROM touristflow.tripadvisorShort WHERE shape_gid = 48328;
+
+OU  
+
+SELECT id, nom, url, nbAvis, latitude, longitude, shape_gid, gtrip FROM touristflow.tripadvisor WHERE shape_gid = 48328;
+
+**************** REVIEWS *****************************
+SELECT id, idplace, idauteur, note, date_review, date_visit, langue FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid = 48328
+);
+
+**************** DATE REVIEWS *******
+2003-01-03 2016-12-09
+SELECT MIN(date_review) AS "Minimum", MAX(date_review) AS "Maximum" FROM touristflow.tripadvisor_reviews WHERE idplace IN (
+	SELECT id FROM touristflow.tripadvisorShort WHERE shape_gid = 48328
+) AND date_review != '0000-00-00';
+
 
 ******************************************************************************
 ******************************************************************************
@@ -91,5 +172,57 @@ from `touristflow`.`tripadvisor_reviews`
 group by extract(year from date_review), extract(month from date_review)
 order by yr, mon;
 
+******************************************************************************
+******************************************************************************
+**************************** REMARQUES ***************************************
+******************************************************************************
+******************************************************************************
+COURCHEVEL 
+shape_gid 53660, 50882
+Code INSEE 73198, 73227
+Code Postal 73120 et 73600 , 73120
+Date first review 2003-07-04 
+Date last review 2016-12-08
+Nombre de mois : 162 (arr° au supérieur) https://www.calendrier-365.fr/calculez/04-07-2003_08-12-2016.html
+Superficie Courchevel : 68,9 km²
+Nombre places : 244
 
+LA GRANDE MOTTE
+shape_gid 72663
+Code INSEE 34280
+Code Postal 34344
+Date first review 2004-05-11 
+Date last review 2016-12-04
+Nombre de mois : 151 (arr° au supérieur) https://www.calendrier-365.fr/calculez/11-05-2004_04-12-2016.html
+Superficie : 10.58
+Nombre places : 214
 
+LILLE
+shape_gid 52094
+Code INSEE 59350
+Code Postal 59000/59160/59260/59777/59800
+Date first review 2002-11-03 
+Date last review 2016-12-09
+Nombre de mois : 170 (arr° au supérieur) https://www.calendrier-365.fr/calculez/03-11-2002_09-12-2016.html
+Superficie : 39,51 km²
+Nombre places : 1426
+
+REIMS
+shape_gid 71233
+Code INSEE 51454
+Code Postal 51100
+Date first review 2002-11-14 
+Date last review 2016-12-07
+Nombre de mois : 169 (arr° au supérieur) https://www.calendrier-365.fr/calculez/14-11-2002_07-12-2016.html
+Superficie : 46,9 km²
+Nombre places : 573
+
+BORDEAUX
+shape_gid 48328
+Code INSEE 33063
+Code Postal 33000/33100/33200/33300/33800
+Date first review 2003-01-03 
+Date last review 2016-12-09
+Nombre de mois : 168 (arr° au supérieur) https://www.calendrier-365.fr/calculez/03-01-2003_09-12-2016.html
+Superficie : 49,36 km²
+Nombre places : 1858
